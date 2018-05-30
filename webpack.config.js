@@ -1,11 +1,16 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
-
+var path = require('path');
 const htmlPlugin = new HtmlWebPackPlugin({
   template: "./src/index.html",
-  filename: "./index.html"
+  filename: "./dist/index.html"
 });
 
 module.exports = {
+  entry : './src/index.js',
+  output : {
+    path : path.join(__dirname, './dist/'),
+    filename : 'main.js'
+  },
   module: {
     rules: [
       {
@@ -20,7 +25,7 @@ module.exports = {
   devServer: {
     compress: true,
     openPage: './dist/index.html',
-    port: 8080
+    port: 8090
   },
   plugins: [htmlPlugin]
 };
