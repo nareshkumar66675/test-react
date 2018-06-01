@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack-dev-server --mode development --open --hot",
     "build": "webpack --mode production",
-    "test": "mocha --require babel-register --require babel-register ./test/helpers/Init.js ./test/*.js"
+    "test": "mocha --require babel-register --require babel-register ./test/helpers/Init.js ./test/*.js",
+    "cc": "nyc mocha --require babel-register --require babel-register ./test/helpers/Init.js ./test/*.js"
   },
   "author": "Naresh Kumar",
   "license": "ISC",
@@ -21,6 +22,7 @@
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
+    "babel-plugin-istanbul": "^4.1.6",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
@@ -32,6 +34,7 @@
     "isomorphic-fetch": "^2.2.1",
     "jsdom": "^11.11.0",
     "mocha": "^5.2.0",
+    "nyc": "^12.0.1",
     "webpack-cli": "^2.1.4",
     "webpack-dev-server": "^3.1.4"
   }

@@ -16,8 +16,8 @@ cache:
 test:
   stage: test
   script:
-    - echo "Running tests"
-    - npm run test
+    - echo "Running tests - With code coverage"
+    - npm run cc
 
 build:
   stage: build
