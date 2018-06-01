@@ -99,7 +99,7 @@ class TableComp extends React.Component{
     return(<div className="container">
       <div className="row  py-1">
       <div className="col-2">Record Count: </div>
-      <div className="col-4"><input type="text" value={this.state.data.length} onChange={this.handleChange} /></div>
+      <div className="col-4"><input type="text" className="py-1" value={this.state.data.length} onChange={this.handleChange} /></div>
       </div>
         <AddStudent handleAdd={this.handleAdd}/>
       <div className="row  py-1">
