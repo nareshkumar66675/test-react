@@ -2,17 +2,17 @@ import React from "react";
 import chai from 'chai'
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import chaiEnzyme from 'chai-enzyme'
+// import chaiEnzyme from 'chai-enzyme'
 
 
-function myAwesomeDebug (wrapper) {
-    let html = wrapper.html()
-    // do something cool with the html
-    console.log("hello")
-    return html
-  }
+// function myAwesomeDebug (wrapper) {
+//     let html = wrapper.html()
+//     // do something cool with the html
+//     console.log("hello")
+//     return html
+//   }
 
-chai.use(chaiEnzyme(myAwesomeDebug))
+// chai.use(chaiEnzyme(myAwesomeDebug))
 
 configure({ adapter: new Adapter() });
 require('isomorphic-fetch');
