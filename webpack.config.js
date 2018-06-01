@@ -2,7 +2,7 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 var path = require('path');
 const htmlPlugin = new HtmlWebPackPlugin({
   template: "./src/index.html",
-  filename: "./dist/index.html"
+  filename: "./index.html"
 });
 
 module.exports = {
