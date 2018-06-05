@@ -1,7 +1,6 @@
-import React from "react";
-import chai from 'chai'
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import PropTypes from 'prop-types';
 // import chaiEnzyme from 'chai-enzyme'
 
 
@@ -19,9 +18,9 @@ require('isomorphic-fetch');
 
 const JsDOM = require('jsdom').JSDOM;
 
-let dom = new JsDOM('<!DOCTYPE html><html><head></head><body></body></html>');
+const dom = new JsDOM('<!DOCTYPE html><html><head></head><body></body></html>');
 global.document = dom;
 global.window = document.parentWindow;
-global.navigator = {userAgent: 'node.js'};
+global.navigator = { userAgent: 'node.js' };
+global.PropTypes = PropTypes;
 global.expect = require('chai').expect;
-

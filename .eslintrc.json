@@ -1,0 +1,20 @@
+{
+    "extends": "airbnb",
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "rules": {
+        "no-undef": "warn",
+        "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+        "react/no-multi-comp": "warn",
+        "no-param-reassign": ["error", { "props": false }],
+        "react/no-unused-state": "warn"
+    },
+    "globals": {
+        "fetch": false,
+        "document": false
+    }
+}
