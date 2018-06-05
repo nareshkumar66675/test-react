@@ -4,6 +4,7 @@ import { shallow } from 'enzyme';
 
 import TableComp from '../src/TableComp';
 import TableTest from '../src/TableTest';
+import Record from '../src/Record';
 // import { Record } from '../src/Record';
 // import { AddStudent } from '../src/AddStudent';
 
@@ -38,5 +39,27 @@ describe('<TableTest/>', () => {
     wrapper.setProps({ tabData: [{}, {}, {}] });
     expect(wrapper.find('Record')).to.have.length(3);
   });
+});
+
+describe('<Record/>', () => {
+  const wrapper = shallow(<Record val="" />);
+
+  wrapper.setProps({ val: {} });
+  it('should have a Table Row', () => {
+    expect(wrapper.find('tr')).to.have.length(1);
+    // expect(wrapper.find('table')).to.have.descendants('#root');
+  });
+
+  it('should have 3 Columns', () => {
+    expect(wrapper.find('td')).to.have.length(3);
+    // expect(wrapper.find('table')).to.have.descendants('#root');
+  });
+
+  // wrapper.setProps({ val: { id: 1, name: 'Naresh', subject: 'Math' } });
+  // it('Record Data Validation', () => {
+  //   wrapper.find('td').forEach((node) => {
+  //     // expect(node.text()).exist();
+  //   });
+  // });
 });
 

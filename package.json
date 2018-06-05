@@ -7,7 +7,7 @@
     "start": "webpack-dev-server --mode development --open --hot",
     "build": "webpack --mode production",
     "test": "mocha --require babel-register --require babel-register ./test/helpers/Init.js ./test/*.jsx",
-    "cc": "nyc --extension .jsx --extension .mjs npm test"
+    "cc": "nyc --extension .jsx --reporter=lcov --reporter=text npm test"
   },
   "author": "Naresh Kumar",
   "license": "ISC",
