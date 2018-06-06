@@ -49,7 +49,8 @@ export default class AddStudent extends React.Component {
     return (
       <React.Fragment>
         <div className="col-3">
-        Name: <input type="text" value={this.state.name} onChange={this.handleNameChange} />
+        Name:
+        <input type="text" name="Name" value={this.state.name} onChange={this.handleNameChange} />
         </div>
         <div className="col-3">
         Subject:
