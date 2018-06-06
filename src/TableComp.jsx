@@ -1,6 +1,6 @@
 import React from 'react';
 import AddStudent from './AddStudent';
-import TableTest from './TableTest';
+import { TableTest } from './TableTest';
 
 export default class TableComp extends React.Component {
   constructor(props) {
@@ -62,7 +62,7 @@ export default class TableComp extends React.Component {
   render() {
     return (
       <div className="container">
-        <div className="row  py-1">
+        <div className="row py-1">
           <div className="col-2">Record Count: </div>
           <div className="col-4">
             <input
@@ -73,10 +73,10 @@ export default class TableComp extends React.Component {
             />
           </div>
         </div>
-        <div className="row  py-1">
+        <div className="row py-1">
           <AddStudent handleAdd={this.handleAdd} />
         </div>
-        <div className="row  py-1">
+        <div className="row py-1">
           <div className="col-8">
             <TableTest tabData={this.state.data} />
           </div>

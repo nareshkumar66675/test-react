@@ -3,8 +3,7 @@ import { shallow } from 'enzyme';
 // import {expect} from 'chai';
 
 import TableComp from '../src/TableComp';
-import TableTest from '../src/TableTest';
-import Record from '../src/Record';
+import { TableTest, Record } from '../src/TableTest';
 // import { Record } from '../src/Record';
 // import { AddStudent } from '../src/AddStudent';
 
