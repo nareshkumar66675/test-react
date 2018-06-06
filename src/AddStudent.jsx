@@ -47,7 +47,7 @@ export default class AddStudent extends React.Component {
 
   render() {
     return (
-      <div className="row py-1">
+      <React.Fragment>
         <div className="col-3">
         Name: <input type="text" value={this.state.name} onChange={this.handleNameChange} />
         </div>
@@ -58,7 +58,7 @@ export default class AddStudent extends React.Component {
         <div className="col-1">
           <button className="btn btn-secondary btn-block" onClick={this.handleAdd}>Add</button>
         </div>
-      </div>);
+      </React.Fragment>);
   }
 }
 

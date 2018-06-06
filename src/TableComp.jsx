@@ -73,7 +73,9 @@ export default class TableComp extends React.Component {
             />
           </div>
         </div>
-        <AddStudent handleAdd={this.handleAdd} />
+        <div className="row  py-1">
+          <AddStudent handleAdd={this.handleAdd} />
+        </div>
         <div className="row  py-1">
           <div className="col-8">
             <TableTest tabData={this.state.data} />
