@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TableComp from './TableComp';
+import StudentApp from './StudentApp';
 
 
-ReactDOM.render(<TableComp />, document.getElementById('index'));
+ReactDOM.render(<StudentApp />, document.getElementById('index'));
 
 // ReactDOM.render(<TableTest/>, document.getElementById("index"));

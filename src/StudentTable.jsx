@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function TableTest({ tabData, handleDelete }) {
+export default function StudentTable({ tabData, handleDelete }) {
   const rows = [];
   for (let i = 0; i < tabData.length; i++) {
     rows.push(<Record key={i} val={tabData[i]} handleDelete={handleDelete} />);
@@ -22,7 +22,7 @@ export default function TableTest({ tabData, handleDelete }) {
     </table>
   );
 }
-TableTest.propTypes = {
+StudentTable.propTypes = {
   tabData: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number,
     name: PropTypes.number.string,
@@ -61,4 +61,4 @@ Record.propTypes = {
   handleDelete: PropTypes.func.isRequired,
 };
 
-export { TableTest, Record };
+export { StudentTable, Record };

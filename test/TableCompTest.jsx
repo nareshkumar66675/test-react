@@ -3,8 +3,8 @@ import { shallow } from 'enzyme';
 // import sinon from 'sinon';
 // import {expect} from 'chai';
 
-import TableComp from '../src/TableComp';
-import { TableTest, Record } from '../src/TableTest';
+import StudentApp from '../src/StudentApp';
+import { StudentTable, Record } from '../src/StudentTable';
 import AddStudent from '../src/AddStudent';
 // import { Record } from '../src/Record';
 // import { AddStudent } from '../src/AddStudent';
@@ -14,8 +14,8 @@ import AddStudent from '../src/AddStudent';
 
 // chai.use(chaiEnzyme()) // Note the invocation at the end
 
-describe('<TableComp/>', () => {
-  const wrapper = shallow(<TableComp />, { disableLifecycleMethods: true });
+describe('<StudentApp/>', () => {
+  const wrapper = shallow(<StudentApp />, { disableLifecycleMethods: true });
   it('should have an input text to display row Count', () => {
     expect(wrapper.find('input')).to.have.length(1);
     // expect(wrapper.find('input')).to.have.className("py-1");
@@ -26,8 +26,8 @@ describe('<TableComp/>', () => {
   });
 });
 
-describe('<TableTest/>', () => {
-  const wrapper = shallow(<TableTest tabData="" />);
+describe('<StudentTable/>', () => {
+  const wrapper = shallow(<StudentTable tabData="" />);
 
   wrapper.setProps({ tabData: [] });
   it('should have a table', () => {

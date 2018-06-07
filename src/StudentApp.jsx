@@ -1,9 +1,9 @@
 import React from 'react';
 import AddStudent from './AddStudent';
-import { TableTest } from './TableTest';
+import { StudentTable } from './StudentTable';
 import Popup from './Popup';
 
-export default class TableComp extends React.Component {
+export default class StudentApp extends React.Component {
   constructor(props) {
     super(props);
 
@@ -94,7 +94,7 @@ export default class TableComp extends React.Component {
         </div>
         <div className="row py-1">
           <div className="col-8">
-            <TableTest tabData={this.state.data} handleDelete={this.deleteEvent} />
+            <StudentTable tabData={this.state.data} handleDelete={this.deleteEvent} />
           </div>
         </div>
         <Popup
