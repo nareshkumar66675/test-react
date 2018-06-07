@@ -59,8 +59,8 @@ describe('<Record/>', () => {
   // });
 });
 
-function addTest(rslt) {
-  console.log(rslt);
+function addTest() {
+  // console.log(rslt);
 }
 
 describe('<AddStudent/>', () => {

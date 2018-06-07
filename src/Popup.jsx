@@ -1,7 +1,8 @@
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import PropTypes from 'prop-types';
 
-class Popup extends React.Component {
+export default class Popup extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -9,6 +10,7 @@ class Popup extends React.Component {
     };
 
     this.toggle = this.toggle.bind(this);
+    this.handleOk = this.handleOk.bind(this);
   }
 
   toggle() {
@@ -17,17 +19,20 @@ class Popup extends React.Component {
     });
   }
 
+  handleOk() {
+    this.toggle();
+    this.props.handleOk();
+  }
   render() {
     return (
       <div>
-        <Button color="danger" onClick={this.toggle}>{this.props.buttonLabel}</Button>
-        <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-          <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
+        <Modal isOpen={this.state.modal} toggle={this.toggle} >
+          <ModalHeader toggle={this.toggle}>{this.props.title}</ModalHeader>
           <ModalBody>
             {this.props.body}
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" onClick={this.toggle}>Do Something</Button>{' '}
+            <Button color="primary" onClick={this.handleOk}>Ok</Button>{' '}
             <Button color="secondary" onClick={this.toggle}>Cancel</Button>
           </ModalFooter>
         </Modal>
@@ -35,3 +40,9 @@ class Popup extends React.Component {
     );
   }
 }
+
+Popup.propTypes = {
+  title: PropTypes.string.isRequired,
+  body: PropTypes.string.isRequired,
+  handleOk: PropTypes.func.isRequired,
+};

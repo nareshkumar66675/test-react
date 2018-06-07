@@ -1,6 +1,7 @@
 import React from 'react';
 import AddStudent from './AddStudent';
 import { TableTest } from './TableTest';
+import Popup from './Popup';
 
 export default class TableComp extends React.Component {
   constructor(props) {
@@ -9,10 +10,12 @@ export default class TableComp extends React.Component {
     this.state = {
       count: 5,
       data: [],
+      deleteId: null,
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleAdd = this.handleAdd.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.deleteEvent = this.deleteEvent.bind(this);
   }
 
   componentDidMount() {
@@ -28,8 +31,8 @@ export default class TableComp extends React.Component {
         });
       }).catch(error => console.log(error));
   }
-  handleDelete(rslt) {
-    const id = parseInt(rslt, 10);
+  handleDelete() {
+    const id = parseInt(this.state.deleteId, 10);
     const tempData = this.state.data.filter(stud => stud.id !== id);
     fetch(`http://localhost:9011/rest/students/delete/${id}`, {
       method: 'get',
@@ -63,16 +66,15 @@ export default class TableComp extends React.Component {
         data: tempData,
       });
     }).catch((err) => { console.log(err); });
-    // const rawResponse = await fetch('http://localhost:9011/rest/students/add', {
-    //     method: 'POST',
-    //     headers: {
-    //       'Accept': 'application/json',
-    //       'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify(rslt)
-    //   });
-    //   const content = await rawResponse.json();
   }
+
+  deleteEvent(rslt) {
+    this.setState({
+      deleteId: rslt,
+    });
+    this.popRef.toggle();
+  }
+
   render() {
     return (
       <div className="container">
@@ -92,40 +94,16 @@ export default class TableComp extends React.Component {
         </div>
         <div className="row py-1">
           <div className="col-8">
-            <TableTest tabData={this.state.data} handleDelete={this.handleDelete} />
+            <TableTest tabData={this.state.data} handleDelete={this.deleteEvent} />
           </div>
         </div>
+        <Popup
+          ref={(instance) => { this.popRef = instance; }}
+          title="Confirm"
+          body="Do you want to delete?"
+          handleOk={this.handleDelete}
+        />
       </div>
     );
   }
-}
-
-function popup() {
-  return (
-    <div
-      className="modal fade"
-      id="exampleModal"
-      tabIndex="-1"
-      role="dialog"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div className="modal-dialog" role="document">
-        <div className="modal-content">
-          <div className="modal-header">
-            <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
-            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div className="modal-body">
-            Do You Really want to delete?
-          </div>
-          <div className="modal-footer">
-            <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" className="btn btn-primary">Save changes</button>
-          </div>
-        </div>
-      </div>
-    </div>);
 }
