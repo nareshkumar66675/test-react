@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function TableTest({ tabData }) {
+export default function TableTest({ tabData, handleDelete }) {
   const rows = [];
   for (let i = 0; i < tabData.length; i++) {
-    rows.push(<Record key={i} val={tabData[i]} />);
+    rows.push(<Record key={i} val={tabData[i]} handleDelete={handleDelete} />);
   }
   return (
     <table className="table table-bordered">
@@ -13,6 +13,7 @@ export default function TableTest({ tabData }) {
           <th>Id</th>
           <th>Name</th>
           <th>Subject</th>
+          <th />
         </tr>
       </thead>
       <tbody>
@@ -27,14 +28,27 @@ TableTest.propTypes = {
     name: PropTypes.number.string,
     subject: PropTypes.number.string,
   })).isRequired,
+  handleDelete: PropTypes.func.isRequired,
 };
 
-function Record({ val }) {
+function Record({ val, handleDelete }) {
+  const alignCenter = {
+    textAlign: 'center',
+  };
   return (
     <tr>
       <td>{val.id}</td>
       <td>{val.name}</td>
       <td>{val.subject}</td>
+      <td style={alignCenter} >
+        <button
+          type="button"
+          className="btn btn-default btn-sm"
+          onClick={() => handleDelete(val.id)}
+        >
+          <i className="fas fa-times" />
+        </button>
+      </td>
     </tr>);
 }
 
@@ -44,6 +58,7 @@ Record.propTypes = {
     name: PropTypes.number.string,
     subject: PropTypes.number.string,
   }).isRequired,
+  handleDelete: PropTypes.func.isRequired,
 };
 
 export { TableTest, Record };

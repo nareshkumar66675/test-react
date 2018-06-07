@@ -46,8 +46,8 @@ describe('<Record/>', () => {
   const wrapper = shallow(<Record val="" />);
 
   wrapper.setProps({ val: {} });
-  it('should have 3 Columns', () => {
-    expect(wrapper.find('td')).to.have.length(3);
+  it('should have 4 Columns', () => {
+    expect(wrapper.find('td')).to.have.length(4);
     // expect(wrapper.find('table')).to.have.descendants('#root');
   });
 
@@ -78,7 +78,6 @@ describe('<AddStudent/>', () => {
   it('Add Button click Validation', () => {
     // const handleNameChangeSpy = sinon.spy(AddStudent.prototype, 'handleNameChange');
     AddStudent.prototype.handleAdd = () => {
-
     };
     wrapper.find('button').simulate('click');
     // expect(wrapper.state('name')).to.equal('naresh');
