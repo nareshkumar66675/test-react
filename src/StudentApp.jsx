@@ -2,6 +2,7 @@ import React from 'react';
 import AddStudent from './AddStudent';
 import { StudentTable } from './StudentTable';
 import Popup from './Popup';
+import StudentGrid from './StudentGrid';
 
 export default class StudentApp extends React.Component {
   constructor(props) {
@@ -11,6 +12,13 @@ export default class StudentApp extends React.Component {
       count: 5,
       data: [],
       deleteId: null,
+      columnDefs: [
+        { headerName: 'Id', field: 'id' },
+        { headerName: 'Name', field: 'name' },
+        { headerName: 'Subject', field: 'subject' },
+      ],
+      rowData: [
+      ],
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleAdd = this.handleAdd.bind(this);
@@ -28,6 +36,7 @@ export default class StudentApp extends React.Component {
       }).then((rslt) => {
         this.setState({
           data: rslt,
+          rowData: rslt,
         });
       }).catch(error => console.log(error));
   }
@@ -41,6 +50,7 @@ export default class StudentApp extends React.Component {
     }).then(() => {
       this.setState({
         data: tempData,
+        rowData: tempData,
       });
     }).catch((err) => { console.log(err); });
   }
@@ -64,6 +74,7 @@ export default class StudentApp extends React.Component {
       tempData.push(rslt);
       this.setState({
         data: tempData,
+        rowData: tempData,
       });
     }).catch((err) => { console.log(err); });
   }
@@ -95,6 +106,11 @@ export default class StudentApp extends React.Component {
         <div className="row py-1">
           <div className="col-8">
             <StudentTable tabData={this.state.data} handleDelete={this.deleteEvent} />
+          </div>
+        </div>
+        <div className="row py-1">
+          <div className="col-8">
+            <StudentGrid columnDefs={this.state.columnDefs} rowData={this.state.rowData} />
           </div>
         </div>
         <Popup

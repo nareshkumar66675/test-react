@@ -31,7 +31,10 @@ export default class NavBarComp extends React.Component {
     const navItems = [];
     for (let i = 0; i < this.props.navItems.length; i++) {
       const navItem = this.props.navItems[i];
-      navItems.push(<NavItem><NavLink href={navItem.link}>{navItem.text}</NavLink></NavItem>);
+      navItems.push(
+        <NavItem key={i}>
+          <NavLink href={navItem.link}>{navItem.text}</NavLink>
+        </NavItem>);
     }
     return (
       <div>

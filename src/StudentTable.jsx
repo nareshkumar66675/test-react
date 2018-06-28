@@ -55,8 +55,8 @@ function Record({ val, handleDelete }) {
 Record.propTypes = {
   val: PropTypes.shape({
     id: PropTypes.number,
-    name: PropTypes.number.string,
-    subject: PropTypes.number.string,
+    name: PropTypes.string,
+    subject: PropTypes.string,
   }).isRequired,
   handleDelete: PropTypes.func.isRequired,
 };
